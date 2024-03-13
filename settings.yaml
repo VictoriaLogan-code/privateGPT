@@ -60,7 +60,7 @@ huggingface:
   embedding_hf_model_name: BAAI/bge-small-en-v1.5
 
 vectorstore:
-  database: qdrant
+  database: pgvector
 
 qdrant:
   path: local_data/private_gpt/qdrant
@@ -68,12 +68,12 @@ qdrant:
 pgvector:
   host: localhost
   port: 5432
-  database: postgres
+  database: vector_db
   user: postgres
-  password: postgres
+  password: password
   embed_dim: 384 # 384 is for BAAI/bge-small-en-v1.5
   schema_name: private_gpt
-  table_name: embeddings
+  table_name: data_docs
 
 sagemaker:
   llm_endpoint_name: huggingface-pytorch-tgi-inference-2023-09-25-19-53-32-140

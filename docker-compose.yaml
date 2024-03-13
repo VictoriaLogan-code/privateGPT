@@ -1,14 +1,15 @@
-services:
-  private-gpt:
-    build:
-      dockerfile: Dockerfile.local
-    volumes:
-      - ./local_data/:/home/worker/app/local_data
-      - ./models/:/home/worker/app/models
-    ports:
-      - 8001:8080
-    environment:
-      PORT: 8080
-      PGPT_PROFILES: docker
-      PGPT_MODE: local
+version: '3.1'
 
+services:
+  pgvector-db:
+    image: ankane/pgvector
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: vector_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - localagent_data:/var/lib/postgresql/data
+volumes:
+  localagent_data:

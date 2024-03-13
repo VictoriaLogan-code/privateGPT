@@ -35,6 +35,12 @@ check:
 run:
 	poetry run python -m private_gpt
 
+run-local:
+	PGPT_PROFILES=local poetry run python -m private_gpt
+
+run-local-cuda:
+	CUDA_VISIBLE_DEVICES=0 PGPT_PROFILES=local poetry run python -m private_gpt
+
 dev-windows:
 	(set PGPT_PROFILES=local & poetry run python -m uvicorn private_gpt.main:app --reload --port 8001)
 
