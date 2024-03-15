@@ -79,3 +79,11 @@ list:
 	@echo "  ingest          : Ingest data using specified script"
 	@echo "  wipe            : Wipe data using specified script"
 	@echo "  setup           : Setup the application"
+
+########################################################################################################################
+# Evaluation with local profile on CUDA GPU 0
+########################################################################################################################
+
+# Do not specify CUDA_VISINLE_DEVICES to take advantage of all available GPUs 
+eval:
+	PGPT_PROFILES=local poetry run python private_gpt/evaluation/end_to_end.py $(call args)

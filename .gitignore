@@ -29,3 +29,7 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# Evaluation
+evaluation/*
+!evaluation/llms_to_eval_template.csv
